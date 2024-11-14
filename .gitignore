@@ -1,0 +1,20 @@
+# Dependency directories
+node_modules/
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Editor
+.idea
+
+# Logs
+*.log
+
+# build
+dist/
+
+#auth
+auth/
+
+kubernetes/staging/secrets.env.local

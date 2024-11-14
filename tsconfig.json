@@ -1,0 +1,25 @@
+{
+    "include": [
+        "src/**/*"
+    ],
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "commonjs",
+        "lib": [
+            "es2020"
+        ],
+        "outDir": "dist",
+        "rootDir": "src",
+        "noImplicitAny": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "moduleResolution": "Node",
+    },
+    "files": [
+        "./src/types/response.d.ts",
+        "./src/types/request.d.ts"
+    ]
+}

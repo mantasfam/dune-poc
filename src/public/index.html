@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dune Analytics Query Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+    <h1>Dune Query Results</h1>
+    
+    <label for="chartIdInput">Enter Chart ID:</label>
+    <input type="text" id="chartIdInput" placeholder="Enter chart ID">
+    <button onclick="fetchVegaLiteData()">Load Vega-Lite Chart</button>
+    <button onclick="fetchChartJsData()">Load Chart.js Chart</button>
+
+    <h2 id="chartTitle" style="margin-top: 20px; color: #555;"></h2>
+
+    <div id="vis" style="width: 600px; height: 400px; border: 1px solid #ddd; margin-top: 20px;"></div>
+    <canvas id="chartCanvas" style="margin-top: 20px; display: none;"></canvas>
+
+    <script>
+        let chart;
+
+        async function fetchVegaLiteData() {
+            const chartIdInput = document.getElementById('chartIdInput').value;
+            const chartId = parseInt(chartIdInput, 10);
+
+            if (isNaN(chartId)) {
+                alert('Please enter a valid numeric Chart ID');
+                return;
+            }
+
+            try {
+                const response = await fetch(`v1/chart/${chartId}`)
+                    .then(response => response.json());
+
+                console.log('Fetched Vega-Lite Data:', response);
+
+                document.getElementById('chartTitle').innerText = response.results.title;
+                document.getElementById('chartCanvas').style.display = 'none';
+                document.getElementById('vis').style.display = 'block';
+
+                vegaEmbed('#vis', response.results)
+                    .then(result => console.log('Vega-Lite chart rendered successfully'))
+                    .catch(error => console.error('Error rendering Vega-Lite chart:', error));
+            } catch (error) {
+                console.error('Error fetching or rendering data:', error);
+                alert('Failed to fetch or render the Vega-Lite chart. Please check the Chart ID.');
+            }
+        }
+
+        async function fetchChartJsData() {
+            const chartIdInput = document.getElementById('chartIdInput').value;
+            const chartId = parseInt(chartIdInput, 10);
+
+            if (isNaN(chartId)) {
+                alert('Please enter a valid numeric Chart ID');
+                return;
+            }
+            try {
+                const response = await fetch(`v1/chartJs/${chartId}`)
+                    .then(response => response.json())               
+                    .then(response => response.results);
+
+                console.log('Fetched Chart.js Data:');
+                console.log(response)
+                document.getElementById('chartTitle').innerText = response.title;
+                document.getElementById('vis').style.display = 'none';
+                document.getElementById('chartCanvas').style.display = 'block';
+
+                const ctx = document.getElementById('chartCanvas').getContext('2d');
+                
+                if (chart) {
+                    chart.destroy();
+                }
+
+                chart = new Chart(ctx, {
+                    type: response.series[0].chartType,
+                    data: {
+                        labels: response.xaxis.map(ts => new Date(ts).toLocaleDateString()),
+                        datasets: response.series.map(series => ({
+                            label: series.name,
+                            data: series.data.map(value => parseFloat(value)),
+                            backgroundColor: series.chartType === 'bar' ? 'rgba(75, 192, 192, 0.2)' : undefined,
+                            borderColor: series.chartType === 'line' ? 'rgba(75, 192, 192, 1)' : undefined,
+                            borderWidth: 1,
+                        })),
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Date' },
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: response.series[0].dataType },
+                            },
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                            },
+                        },
+                    },
+                });
+            } catch (error) {
+                console.error('Error fetching or rendering data:', error);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -7,7 +7,7 @@ export interface ChartJsConfiguration {
   spec: {
     title: string;
     description: string;
-    xaxisGranurality: "hourly" | "daily";
+    xaxisGranurality: "hour" | "daily";
     filterColumn?: string;
     timeColumn: string;
     series?: {

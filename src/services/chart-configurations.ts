@@ -263,7 +263,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
     spec: {
       title: "Blob Total Fees In Eth",
       description: "Chart description, lorem ipsum:D",
-      xaxisGranurality: "hourly", // can be daily
+      xaxisGranurality: "hour", // can be daily
       timeColumn: "time",
       filterColumn: "fee_type",
       series: [

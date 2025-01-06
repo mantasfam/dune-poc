@@ -452,4 +452,25 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       ],
     },
   },
+  9: {
+    dataSource: {
+      type: "dune",
+      queryId: 4104550,
+    },
+    spec: {
+      title: "Blob Total Fees In Eth (reworked config)",
+      description: "Chart description, lorem ipsum",
+      xaxisGranurality: "hour", // can be daily
+      timeColumnName: "time",
+      dynamicSeriesColumn: "fee_type", // New property for dynamic series generation
+      series: [
+        {
+          fieldColumn: "fee",
+          name: "{dynamic}", // Placeholder for dynamic series name (e.g., issuer)
+          chartType: "bar",
+          dataType: "number",
+        },
+      ],
+    },
+  },
 };

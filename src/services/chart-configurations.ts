@@ -310,4 +310,73 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       ],
     },
   },
+  3: {
+    dataSource: {
+      type: "dune",
+      queryId: 2947076,
+    },
+    spec: {
+      title: "Hyperliquid USDC Deposit",
+      description:
+        "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
+      xaxisGranurality: "daily",
+      timeColumn: "date",
+      series: [
+        {
+          fieldColumn: "daily_amount",
+          name: "Daily Deposit",
+          chartType: "bar",
+          dataType: "currency",
+        },
+        {
+          fieldColumn: "cumulative_amount",
+          name: "Cumulative Deposit Amount",
+          chartType: "line",
+          dataType: "currency",
+        },
+      ],
+    },
+  },
+  4: {
+    dataSource: {
+      type: "dune",
+      queryId: 2947076,
+    },
+    spec: {
+      title: "Hyperliquid USDC Deposit (only daily amount)",
+      description:
+        "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
+      xaxisGranurality: "daily",
+      timeColumn: "date",
+      series: [
+        {
+          fieldColumn: "daily_amount",
+          name: "Daily Deposit",
+          chartType: "bar",
+          dataType: "currency",
+        },
+      ],
+    },
+  },
+  5: {
+    dataSource: {
+      type: "dune",
+      queryId: 2947076,
+    },
+    spec: {
+      title: "Hyperliquid USDC Deposit (only cumulative amount)",
+      description:
+        "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
+      xaxisGranurality: "daily",
+      timeColumn: "date",
+      series: [
+        {
+          fieldColumn: "cumulative_amount",
+          name: "Cumulative Deposit Amount",
+          chartType: "line",
+          dataType: "currency",
+        },
+      ],
+    },
+  },
 };

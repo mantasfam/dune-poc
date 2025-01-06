@@ -441,10 +441,11 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       description: "Bitcoin ETFs Onchain Holdings. https://dune.com/queries/3382000/5675109",
       xaxisGranurality: "daily",
       timeColumnName: "time",
+      dynamicSeriesColumn: "issuer", // New property for dynamic series generation
       series: [
         {
           fieldColumn: "usd_tvl",
-          name: "holdings",
+          name: "{dynamic}", // Placeholder for dynamic series name (e.g., issuer)
           chartType: "line",
           dataType: "currency",
         },

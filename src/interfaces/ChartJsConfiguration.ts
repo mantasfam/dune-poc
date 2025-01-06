@@ -1,4 +1,5 @@
 export interface ChartJsConfiguration {
+  // TO DO: split config configuration into multiple interfaces: one for config and one for FE
   dataSource: {
     type: "dune" | "thegraph";
     queryId?: number;
@@ -10,6 +11,7 @@ export interface ChartJsConfiguration {
     xaxisGranurality: "hour" | "daily";
     timeColumnName: string;
     filterColumnName?: string;
+    dynamicSeriesColumn?: string;
     series?: {
       fieldColumn: string;
       name: string;

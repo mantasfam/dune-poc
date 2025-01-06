@@ -8,8 +8,8 @@ export interface ChartJsConfiguration {
     title: string;
     description: string;
     xaxisGranurality: "hour" | "daily";
-    filterColumn?: string;
-    timeColumn: string;
+    timeColumnName: string;
+    filterColumnName?: string;
     series?: {
       fieldColumn: string;
       name: string;

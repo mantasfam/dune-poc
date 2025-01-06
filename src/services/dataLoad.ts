@@ -70,26 +70,30 @@ class DataGatherService {
       throw new Error(`Unsupported data source: ${config.dataSource.type}`);
     }
 
-    const xaxis = result.map((row: any) => new Date(row[config.spec.timeColumn]).getTime());
+    const xaxis = result.map((row: any) => new Date(row[config.spec.timeColumnName]).getTime());
     const uniqueTimestamps = Array.from(new Set(xaxis)).sort((a, b) => a - b);
 
     const series = config.spec.series.map((seriesConfig: any) => ({
       fieldColumn: seriesConfig.fieldColumn,
       name: seriesConfig.name,
+      filterValue: seriesConfig.filterValue,
       chartType: seriesConfig.chartType,
       dataType: seriesConfig.dataType,
       data: uniqueTimestamps.map(() => "0"),
     }));
 
     result.forEach((row: any) => {
-      const timestamp = new Date(row[config.spec.timeColumn]).getTime();
+      const timestamp = new Date(row[config.spec.timeColumnName]).getTime();
       const timestampIndex = uniqueTimestamps.indexOf(timestamp);
 
       if (timestampIndex !== -1) {
         series.forEach((s: any) => {
           const seriesColumn = s.fieldColumn;
           // apply filter if needed
-          if (!config.spec.filterColumn || row[config.spec.filterColumn] === s.name) {
+          if (
+            !config.spec.filterColumnName ||
+            row[config.spec.filterColumnName] === s.filterValue
+          ) {
             const value = row[seriesColumn] || 0;
             s.data[timestampIndex] = Number(value).toFixed(6);
           }
@@ -104,7 +108,6 @@ class DataGatherService {
       xaxis: uniqueTimestamps,
       series,
     };
-    console.log("title", dataSpec.title);
     return dataSpec;
   };
 }

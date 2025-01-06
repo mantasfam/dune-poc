@@ -262,10 +262,10 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
     },
     spec: {
       title: "Blob Total Fees In Eth",
-      description: "Chart description, lorem ipsum:D",
+      description: "Chart description, lorem ipsum",
       xaxisGranurality: "hour", // can be daily
-      timeColumn: "time",
-      filterColumn: "fee_type",
+      timeColumnName: "time",
+      filterColumnName: "fee_type",
       series: [
         {
           fieldColumn: "fee",
@@ -293,7 +293,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       title: "Revenue stats",
       description: "Revenue stats",
       xaxisGranurality: "daily", // can be daily
-      timeColumn: "date",
+      timeColumnName: "date",
       series: [
         {
           fieldColumn: "daily_revenue_usd",
@@ -320,7 +320,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       description:
         "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
       xaxisGranurality: "daily",
-      timeColumn: "date",
+      timeColumnName: "date",
       series: [
         {
           fieldColumn: "daily_amount",
@@ -347,7 +347,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       description:
         "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
       xaxisGranurality: "daily",
-      timeColumn: "date",
+      timeColumnName: "date",
       series: [
         {
           fieldColumn: "daily_amount",
@@ -368,11 +368,83 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       description:
         "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
       xaxisGranurality: "daily",
-      timeColumn: "date",
+      timeColumnName: "date",
       series: [
         {
           fieldColumn: "cumulative_amount",
           name: "Cumulative Deposit Amount",
+          chartType: "line",
+          dataType: "currency",
+        },
+      ],
+    },
+  },
+  6: {
+    dataSource: {
+      type: "dune",
+      queryId: 4234414,
+    },
+    spec: {
+      title: "AI Agent Launchpad",
+      description: "AI Agent Launchpad. Dune URL: https://dune.com/queries/4234414/7122751",
+      xaxisGranurality: "daily",
+      timeColumnName: "period",
+      series: [
+        {
+          fieldColumn: "launched",
+          name: "Launched",
+          chartType: "bar",
+          dataType: "number",
+        },
+        {
+          fieldColumn: "total_launched",
+          name: "Total Launched",
+          chartType: "line",
+          dataType: "number",
+        },
+      ],
+    },
+  },
+  7: {
+    dataSource: {
+      type: "dune",
+      queryId: 3759856,
+    },
+    spec: {
+      title: "Pump.fun Revenue",
+      description: "Pump.fun Revenue. Dune URL: https://dune.com/queries/3759856/6323377",
+      xaxisGranurality: "daily",
+      timeColumnName: "date",
+      series: [
+        {
+          fieldColumn: "daily_revenue_usd",
+          name: "Daily revenue",
+          chartType: "bar",
+          dataType: "currency",
+        },
+        {
+          fieldColumn: "total_revenue_usd",
+          name: "Total revenue",
+          chartType: "line",
+          dataType: "currency",
+        },
+      ],
+    },
+  },
+  8: {
+    dataSource: {
+      type: "dune",
+      queryId: 3382000,
+    },
+    spec: {
+      title: "Bitcoin ETFs Onchain Holdings",
+      description: "Bitcoin ETFs Onchain Holdings. https://dune.com/queries/3382000/5675109",
+      xaxisGranurality: "daily",
+      timeColumnName: "time",
+      series: [
+        {
+          fieldColumn: "usd_tvl",
+          name: "holdings",
           chartType: "line",
           dataType: "currency",
         },

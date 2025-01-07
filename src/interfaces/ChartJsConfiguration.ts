@@ -8,7 +8,7 @@ export interface ChartJsConfiguration {
   spec: {
     title: string;
     description: string;
-    xaxisGranurality: "hour" | "daily";
+    xaxisGranurality: "hour" | "day";
     timeColumnName: string;
     filterColumnName?: string;
     dynamicSeriesColumn?: string;

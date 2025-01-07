@@ -263,7 +263,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
     spec: {
       title: "Blob Total Fees In Eth",
       description: "Chart description, lorem ipsum",
-      xaxisGranurality: "hour", // can be daily
+      xaxisGranurality: "day",
       timeColumnName: "time",
       filterColumnName: "fee_type",
       series: [
@@ -292,7 +292,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
     spec: {
       title: "Revenue stats",
       description: "Revenue stats",
-      xaxisGranurality: "daily", // can be daily
+      xaxisGranurality: "day", // can be daily
       timeColumnName: "date",
       series: [
         {
@@ -319,7 +319,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       title: "Hyperliquid USDC Deposit",
       description:
         "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
-      xaxisGranurality: "daily",
+      xaxisGranurality: "day",
       timeColumnName: "date",
       series: [
         {
@@ -346,7 +346,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       title: "Hyperliquid USDC Deposit (only daily amount)",
       description:
         "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
-      xaxisGranurality: "daily",
+      xaxisGranurality: "day",
       timeColumnName: "date",
       series: [
         {
@@ -367,7 +367,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       title: "Hyperliquid USDC Deposit (only cumulative amount)",
       description:
         "A simple board to track the USDC deposit activity for Hyperliquid's Arbitrum bridge. Dune URL: https://dune.com/queries/2947076",
-      xaxisGranurality: "daily",
+      xaxisGranurality: "day",
       timeColumnName: "date",
       series: [
         {
@@ -387,7 +387,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
     spec: {
       title: "AI Agent Launchpad",
       description: "AI Agent Launchpad. Dune URL: https://dune.com/queries/4234414/7122751",
-      xaxisGranurality: "daily",
+      xaxisGranurality: "day",
       timeColumnName: "period",
       series: [
         {
@@ -413,7 +413,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
     spec: {
       title: "Pump.fun Revenue",
       description: "Pump.fun Revenue. Dune URL: https://dune.com/queries/3759856/6323377",
-      xaxisGranurality: "daily",
+      xaxisGranurality: "day",
       timeColumnName: "date",
       series: [
         {
@@ -439,7 +439,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
     spec: {
       title: "Bitcoin ETFs Onchain Holdings",
       description: "Bitcoin ETFs Onchain Holdings. https://dune.com/queries/3382000/5675109",
-      xaxisGranurality: "daily",
+      xaxisGranurality: "day",
       timeColumnName: "time",
       dynamicSeriesColumn: "issuer", // New property for dynamic series generation
       series: [
@@ -460,7 +460,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
     spec: {
       title: "Blob Total Fees In Eth (reworked config)",
       description: "Chart description, lorem ipsum",
-      xaxisGranurality: "hour", // can be daily
+      xaxisGranurality: "day",
       timeColumnName: "time",
       dynamicSeriesColumn: "fee_type", // New property for dynamic series generation
       series: [

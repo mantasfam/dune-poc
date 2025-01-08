@@ -13,7 +13,7 @@ export interface ChartJsConfiguration {
     filterColumnName?: string;
     dynamicSeriesColumn?: string;
     series?: {
-      fieldColumn: string;
+      fieldColumnName: string;
       name: string;
       chartType: "bar" | "line";
       dataType: "number" | "percentage" | "currency";

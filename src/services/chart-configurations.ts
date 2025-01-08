@@ -268,14 +268,14 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       filterColumnName: "fee_type",
       series: [
         {
-          fieldColumn: "fee",
+          fieldColumnName: "fee",
           name: "Submission",
           filterValue: "Submission",
           chartType: "bar", // can also be "line"
           dataType: "number",
         },
         {
-          fieldColumn: "fee",
+          fieldColumnName: "fee",
           name: "Mainnet",
           filterValue: "Mainnet",
           chartType: "bar", // can also be "line"
@@ -296,13 +296,13 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       timeColumnName: "date",
       series: [
         {
-          fieldColumn: "daily_revenue_usd",
+          fieldColumnName: "daily_revenue_usd",
           name: "Daily revenue",
           chartType: "bar", // can also be "line"
           dataType: "currency",
         },
         {
-          fieldColumn: "cumulative_revenue_usd",
+          fieldColumnName: "cumulative_revenue_usd",
           name: "Cumulative",
           chartType: "line", // can also be "line"
           dataType: "currency",
@@ -323,13 +323,13 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       timeColumnName: "date",
       series: [
         {
-          fieldColumn: "daily_amount",
+          fieldColumnName: "daily_amount",
           name: "Daily Deposit",
           chartType: "bar",
           dataType: "currency",
         },
         {
-          fieldColumn: "cumulative_amount",
+          fieldColumnName: "cumulative_amount",
           name: "Cumulative Deposit Amount",
           chartType: "line",
           dataType: "currency",
@@ -350,7 +350,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       timeColumnName: "date",
       series: [
         {
-          fieldColumn: "daily_amount",
+          fieldColumnName: "daily_amount",
           name: "Daily Deposit",
           chartType: "bar",
           dataType: "currency",
@@ -371,7 +371,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       timeColumnName: "date",
       series: [
         {
-          fieldColumn: "cumulative_amount",
+          fieldColumnName: "cumulative_amount",
           name: "Cumulative Deposit Amount",
           chartType: "line",
           dataType: "currency",
@@ -391,13 +391,13 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       timeColumnName: "period",
       series: [
         {
-          fieldColumn: "launched",
+          fieldColumnName: "launched",
           name: "Launched",
           chartType: "bar",
           dataType: "number",
         },
         {
-          fieldColumn: "total_launched",
+          fieldColumnName: "total_launched",
           name: "Total Launched",
           chartType: "line",
           dataType: "number",
@@ -417,13 +417,13 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       timeColumnName: "date",
       series: [
         {
-          fieldColumn: "daily_revenue_usd",
+          fieldColumnName: "daily_revenue_usd",
           name: "Daily revenue",
           chartType: "bar",
           dataType: "currency",
         },
         {
-          fieldColumn: "total_revenue_usd",
+          fieldColumnName: "total_revenue_usd",
           name: "Total revenue",
           chartType: "line",
           dataType: "currency",
@@ -444,7 +444,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       dynamicSeriesColumn: "issuer", // New property for dynamic series generation
       series: [
         {
-          fieldColumn: "usd_tvl",
+          fieldColumnName: "usd_tvl",
           name: "{dynamic}", // Placeholder for dynamic series name (e.g., issuer)
           chartType: "line",
           dataType: "currency",
@@ -465,7 +465,7 @@ export const chartJsToQueryMap: Record<number, ChartJsConfiguration> = {
       dynamicSeriesColumn: "fee_type", // New property for dynamic series generation
       series: [
         {
-          fieldColumn: "fee",
+          fieldColumnName: "fee",
           name: "{dynamic}", // Placeholder for dynamic series name (e.g., issuer)
           chartType: "bar",
           dataType: "number",

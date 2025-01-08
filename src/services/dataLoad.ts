@@ -85,7 +85,7 @@ class DataGatherService {
 
       // Generate series dynamically for each group
       series = uniqueGroups.map((group: string) => ({
-        fieldColumn: baseSeries.fieldColumn,
+        fieldColumnName: baseSeries.fieldColumnName,
         name: baseSeries.name.replace("{dynamic}", group), // Replace placeholder with dynamic value
         filterValue: group, // For grouping data later
         chartType: baseSeries.chartType,
@@ -101,7 +101,7 @@ class DataGatherService {
         if (timestampIndex !== -1) {
           series.forEach((s: any) => {
             if (row[config.spec.dynamicSeriesColumn] === s.filterValue) {
-              const value = row[s.fieldColumn] || 0;
+              const value = row[s.fieldColumnName] || 0;
               s.data[timestampIndex] = Number(value).toFixed(6);
             }
           });
@@ -110,7 +110,7 @@ class DataGatherService {
     } else {
       // Standard processing if no dynamicSeriesColumn
       series = config.spec.series.map((seriesConfig: any) => ({
-        fieldColumn: seriesConfig.fieldColumn,
+        fieldColumnName: seriesConfig.fieldColumnName,
         name: seriesConfig.name,
         filterValue: seriesConfig.filterValue,
         chartType: seriesConfig.chartType,
@@ -124,7 +124,7 @@ class DataGatherService {
 
         if (timestampIndex !== -1) {
           series.forEach((s: any) => {
-            const seriesColumn = s.fieldColumn;
+            const seriesColumn = s.fieldColumnName;
             if (
               !config.spec.filterColumnName ||
               row[config.spec.filterColumnName] === s.filterValue

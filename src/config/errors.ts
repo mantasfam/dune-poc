@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { COOLDOWN_IN_SEC } from "./consts";
+import { TIME } from "./consts";
 
 export const ERROR_MESSAGE = "Something went wrong! Please try again";
 
@@ -81,7 +81,7 @@ export const tooManyRequests = (res: Response): void => {
     message: [
       {
         reason: ERROR_REASON_TEXT.BAD_REQUEST,
-        message: `Cooldown in effect: Please wait ${COOLDOWN_IN_SEC} seconds to verify again`,
+        message: `Cooldown in effect: Please wait ${TIME.SECONDS_30} seconds to verify again`,
       },
     ],
   });
